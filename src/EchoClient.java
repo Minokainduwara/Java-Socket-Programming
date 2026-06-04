@@ -17,7 +17,10 @@ public class EchoClient {
             //Send the String to the User
             PrintWriter out = new PrintWriter(soc.getOutputStream(), true);
             out.println(message);
-            out.close();
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
+            System.out.println(in.readLine());
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
